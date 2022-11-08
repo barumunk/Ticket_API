@@ -126,7 +126,8 @@ def registro():
                     "correo"    :request.form['f_corr'],
                     "nivel"     :request.form['f_nive'],
                     "municipio" :request.form['f_muni'],
-                    "asunto"    :request.form['f_uni']
+                    "asunto"    :request.form['f_uni'],
+                    "estatus"   :"Pendiente"
                 }
             else:
                 registro_turno = {
@@ -141,7 +142,8 @@ def registro():
                     "correo"    :request.form['f_corr'],
                     "nivel"     :request.form['f_nive'],
                     "municipio" :request.form['f_muni'],
-                    "asunto"    :request.form['f_uni']
+                    "asunto"    :request.form['f_uni'],
+                    "estatus"   :"Pendiente"
                 }
             db.turno.insert_many([registro_turno])
 
@@ -201,7 +203,8 @@ def registro_admin():
                     "correo"    :request.form['f_corr'],
                     "nivel"     :request.form['f_nive'],
                     "municipio" :request.form['f_muni'],
-                    "asunto"    :request.form['f_uni']
+                    "asunto"    :request.form['f_uni'],
+                    "estatus"   :"Pendiente"
                 }
             else:
                 registro_turno = {
@@ -216,7 +219,8 @@ def registro_admin():
                     "correo"    :request.form['f_corr'],
                     "nivel"     :request.form['f_nive'],
                     "municipio" :request.form['f_muni'],
-                    "asunto"    :request.form['f_uni']
+                    "asunto"    :request.form['f_uni'],
+                    "estatus"   :"Pendiente"
                 }
             db.turno.insert_many([registro_turno])
 
@@ -389,7 +393,8 @@ def actualizar_datos_admin():
             "correo"    :request.form['f_corr'],
             "nivel"     :request.form['f_nive'],
             "municipio" :request.form['f_muni'],
-            "asunto"    :request.form['f_uni']
+            "asunto"    :request.form['f_uni'],
+            "estatus"   :request.form['f_esta']
             } 
         }
 

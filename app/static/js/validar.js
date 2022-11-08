@@ -131,6 +131,107 @@ var validarcurp = (datoCampo) =>{
 }
 
 
+
+
+
+
+//*************************************************** */
+function validadcion_curp(Curp,P_apellido,M_apellido,Nombre,tamaño)
+{
+    if (basia(Curp)==true)
+    return "vacio";
+    if (tamaño!=18)
+    return "invalida";
+    N_letra=0;
+    //primera letra del p apellido 0
+    if (String(Curp)[0].toUpperCase() != String(P_apellido)[0].toUpperCase())
+    return "invalida";
+    //primera vocal del p apellido 1
+    do
+    {
+        N_letra+=1;
+        var bandera =vocal(String(P_apellido)[N_letra].toLowerCase());
+    }while(bandera==false);
+    if (String(Curp)[1].toUpperCase() != String(P_apellido)[N_letra].toUpperCase())
+    return "invalida";
+    //primera letra del m apellido 2
+    if (String(Curp)[2].toUpperCase() != String(M_apellido)[0].toUpperCase())
+    return "invalida";
+    //primera vocal del m apellido 3
+    if (String(Curp)[3].toUpperCase() != String(Nombre)[0].toUpperCase())
+    return "invalida";
+    //año de nacimiento dos digitos 5
+    //mes 7
+    //dia 9
+    //sexo 10
+    //clave alfabetica de la entidada federativa 12
+    //primer consonate no incila del appellido paterno 13
+    N_letra=0;
+    do
+    {
+        N_letra+=1
+        var bandera =vocal(String(P_apellido)[N_letra].toLowerCase());
+    }while(bandera==true)
+    if (String(Curp)[13].toUpperCase() != String(P_apellido)[N_letra].toUpperCase())
+    return "invalida";
+    // lo mismo pero con el materno 14
+    N_letra=0
+    do
+    {
+        N_letra+=1
+        var bandera =vocal(String(M_apellido)[N_letra].toLowerCase());
+    }while(bandera==true);
+    if (String(Curp)[14].toUpperCase() != String(M_apellido)[N_letra].toUpperCase())
+    return "invalida";
+    N_letra=0
+    do
+    {
+        N_letra+=1
+        var bandera =vocal(String(Nombre)[N_letra].toLowerCase())
+    }while(bandera==true);
+    if (String(Curp)[15].toUpperCase() != String(Nombre)[N_letra].toUpperCase())
+        return "invalida";
+    //dos digitos 17   
+    alert("jajajajajajajajajaa");
+    return "valida";
+}
+
+
+function vocal(letra)
+{
+    if(String(letra)=="a"|String(letra)=="e"|String(letra)=="i"|String(letra)=="o"|String(letra)=="u")
+        return true;
+    else
+        return false;
+
+}
+
+function valida_nombre(Nombre){
+    if (basia(Nombre.value)==true)
+    return "basio";
+    if (Nombre.value.length<3)
+    return  "invalido";
+        for (var i= 0;i<Nombre.value.length;i++){
+        if (Nombre.value.charAt(i).charCodeAt(0)>64 & Nombre.value.charAt(i).charCodeAt(0)<91);
+        else if (Nombre.value.charAt(i).charCodeAt(0)>96 & Nombre.value.charAt(i).charCodeAt(0)<123);
+        else if (Nombre.value.charAt(i).charCodeAt(0)==32|Nombre.value.charAt(i).charCodeAt(0)==45 |Nombre.value.charAt(i).charCodeAt(0)==225 |Nombre.value.charAt(i).charCodeAt(0)==193 |Nombre.value.charAt(i).charCodeAt(0)==233 |Nombre.value.charAt(i).charCodeAt(0)==201 |Nombre.value.charAt(i).charCodeAt(0)==237 |Nombre.value.charAt(i).charCodeAt(0)==205 |Nombre.value.charAt(i).charCodeAt(0)==243 |Nombre.value.charAt(i).charCodeAt(0)==211 |Nombre.value.charAt(i).charCodeAt(0)==218 |Nombre.value.charAt(i).charCodeAt(0)==250 |Nombre.value.charAt(i).charCodeAt(0)==252 |Nombre.value.charAt(i).charCodeAt(0)==220 |Nombre.value.charAt(i).charCodeAt(0)==241 |Nombre.value.charAt(i).charCodeAt(0)==209);
+        else
+            {alert (Nombre.value.charAt(i).charCodeAt(0))
+            return "invalido";}
+    }   
+    return "valida"
+    
+}
+//***************************************************** */
+
+
+
+
+
+
+
+
+
 function calcularAños(dia, mes, año) {
     var today = new Date();
     if(año >= '00' && año <= today.getFullYear().toString().substr(2,2)){
@@ -173,16 +274,6 @@ var alerta = (fondo,fondo1,texto,llaves) => {
 }
 
 
-var methodPost = (datos) => {
-    fetch('php/register.php',{
-        method: 'POST',
-        body: datos
-    }).then(res => res.json())
-      .then(data => {
-        console.log(data);
-      });
-}
-
 
 var formu = document.getElementById('formulario');
 // botón del evento
@@ -199,6 +290,8 @@ formulario.addEventListener('submit', (e) => {
     var mes     = datoCampo.f_curp[1].substr(6,2);
     var dia     = datoCampo.f_curp[1].substr(8,2);
     var edad    = calcularAños(dia,mes,ano);
+
+    
     // valida si el campo NO viene vacío
     if(datoCampo.f_namecom[0] && datoCampo.f_curp[0] && datoCampo.f_name[0] && datoCampo.f_pate[0] 
        && datoCampo.f_mate[0] && datoCampo.f_tele[0] && datoCampo.f_celu[0] && datoCampo.f_corr[0] 
@@ -208,44 +301,24 @@ formulario.addEventListener('submit', (e) => {
             document.getElementById(llaves[i]).style.backgroundColor = "white";
         }
 
+        var curp_validacion = validadcion_curp(datoCampo.f_curp[0],datoCampo.f_pate[0],datoCampo.f_mate[0],datoCampo.f_name[0],18)
         // valida si el campo CURP cumple el patrón como esta conformado
-        if(validarcurp(datoCampo)){
-            if(edad >= 15 && edad <= 18 && select1 === "secundaria"){
+        if(curp_validacion === 'valida'){
+            if(edad >= 3 && edad <= 6 && select1 === "preescolar"){
                 alerta('green','#48F01B','Formulario Completado',llaves);
-                /*fetch('php/register.php',{
-                    method: 'POST',
-                    body: datos
-                }).then(res => res.json())
-                  .then(data => {
-                    console.log(data);
-                  });*/
-                  window.location='http://localhost:5000/user/ticket/registro';
+                window.location='http://localhost:5000/user/ticket/registro';
             }
-            else if(edad >= 18 && edad <= 20 && select1 === "preparatoria"){
+            else if(edad >= 6 && edad <= 12 && select1 === "primaria"){
                 alerta('green','#48F01B','Formulario Completado',llaves);
-                /*fetch('php/register.php',{
-                    method: 'POST',
-                    body: datos
-                }).then(res => res.json())
-                  .then(data => {
-                    console.log(data);
-                  });*/
-                  window.location='http://localhost:5000/user/ticket/registro';
+                window.location='http://localhost:5000/user/ticket/registro';
             }
-            else if(edad >= 20 && edad <= 60 && select1 === "universidad"){
+            else if(edad >= 12 && edad <= 15 && select1 === "secundaria"){
                 alerta('green','#48F01B','Formulario Completado',llaves);
-                /*fetch('../php/register.php',{
-                    method: 'POST',
-                    body: datos
-                }).then(res => res.json())
-                  .then(data => {
-                    console.log(data);
-                  });*/
-                  window.location='http://localhost:5000/user/ticket/registro';
+                window.location='http://localhost:5000/user/ticket/registro';
             }
             else{
                 alerta('red','#F85146','NO se podrá agendar cita por el sistema en línea, acudir a las oficinas correspondiente',llaves);
-            } // cova970112hclrln02
+            } 
         }
         // valida si el campo CURP NO cumple el patrón como esta conformado
         else{
