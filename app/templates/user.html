@@ -6,7 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="css/style.css" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-        
+        <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
+        <script src="{{ url_for('static', filename='../js/jquery-3.6.1.min.js') }}"></script>
     </head>
     <body>
         <div class="container mt-5">
@@ -21,6 +22,17 @@
                                 <th>Nombre</th>
                                 <th>Apellido</th>
                                 <th>Curp</th>
+                                <th>Estatus</th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
                                 <th></th>
                                 <th></th>
                             </tr>
@@ -33,8 +45,21 @@
                                     <th>{{dic['nombre']}}</th>
                                     <th>{{dic['paterno']}}</th> 
                                     <th>{{dic['curp']}}</th>
+                                    <th>{{dic['estatus']}}</th>
+                                    <th><input hidden type="text" class="btn btn-info" id="nombrecomp" name="municipio" value="{{dic['nombrecomp']}}"></th>
+                                    <th><input hidden type="text" class="btn btn-info" id="curp" name="municipio" value="{{dic['curp']}}"></th>
+                                    <th><input hidden type="text" class="btn btn-info" id="nombre" name="municipio" value="{{dic['nombre']}}"></th>
+                                    <th><input hidden type="text" class="btn btn-info" id="paterno" name="municipio" value="{{dic['paterno']}}"></th>
+                                    <th><input hidden type="text" class="btn btn-info" id="materno" name="municipio" value="{{dic['materno']}}"></th>
+                                    <th><input hidden type="text" class="btn btn-info" id="telefono" name="municipio" value="{{dic['telefono']}}"></th>
+                                    <th><input hidden type="text" class="btn btn-info" id="celular" name="municipio" value="{{dic['celular']}}"></th>
+                                    <th><input hidden type="text" class="btn btn-info" id="correo" name="municipio" value="{{dic['correo']}}"></th>
+                                    <th><input hidden type="text" class="btn btn-info" id="nivel" name="municipio" value="{{dic['nivel']}}"></th>
                                     <th><input hidden type="text" class="btn btn-info" id="municipio" name="municipio" value="{{dic['municipio']}}"></th>
+                                    <th><input hidden type="text" class="btn btn-info" id="asunto" name="municipio" value="{{dic['asunto']}}"></th>
+                                    <th><input hidden type="text" class="btn btn-info" id="estatus" name="municipio" value="{{dic['estatus']}}"></th>
                                     <th><button onclick="municipio()" class="btn btn-info">Editar</button></th>
+                                    <th><button onclick="pdf()" class="btn btn-danger">PDF</button></th>
                                 </tr>|  
                             {% endfor %}
                         </tbody>
@@ -43,6 +68,8 @@
             </div>  
         </div>
         <script>
+            //import {jsPDF} from 'jspdf';
+
             function ruta()
             {
                 window.location='http://localhost:5000/user/ticket';
@@ -54,6 +81,57 @@
                 {
                     window.location='http://localhost:5000/user/validar/'+info.value;
                 }
+            }
+
+            function pdf()
+            {
+                window.jsPDF = window.jspdf.jsPDF;
+                
+                var completo = document.getElementById('nombrecomp').value;
+                var curp = document.getElementById('curp').value;
+                var nombre = document.getElementById('nombre').value;
+                var paterno= document.getElementById('paterno').value;
+                var materno = document.getElementById('materno').value;
+                var telefono = document.getElementById('telefono').value;
+                var celular = document.getElementById('celular').value;
+                var correo = document.getElementById('correo').value;
+                var nivel = document.getElementById('nivel').value;
+                var municipio = document.getElementById('municipio').value;
+                var asunto = document.getElementById('asunto').value;
+                var estatus = document.getElementById('estatus').value;
+
+                var doc = new jsPDF();
+
+                doc.text(20, 20, 'ESTADO DEL TICKET');
+                doc.text(20, 40, 'Estatus');
+                doc.text(20, 60, 'Nombre Completo:');
+                doc.text(20, 80, completo);
+                doc.text(20, 100, 'CURP:');
+                doc.text(20, 120, curp);
+                doc.text(20, 140, 'Nombre:');
+                doc.text(20, 160, nombre);
+                doc.text(20, 180, 'Paterno:');
+                doc.text(20, 200, paterno);
+                doc.text(20, 220, 'Materno:');
+                doc.text(20, 240, materno);
+                doc.text(20, 260, 'Telefono:');
+                doc.text(20, 280, telefono);
+                doc.addPage();
+                doc.text(20, 20, 'Celular:');
+                doc.text(20, 40, celular);
+                doc.text(20, 60, 'Correo:');
+                doc.text(20, 80, correo);
+                doc.text(20, 90, 'Nivel:');
+                doc.text(20, 100, nivel);
+                doc.text(20, 120, 'Municipio:');
+                doc.text(20, 140, municipio);
+                doc.text(20, 160, 'Asunto:');
+                doc.text(20, 180, asunto);
+                // Add new page
+                //doc.addPage();
+                //doc.text(20, 20, 'Visita programacion.net');
+                // Save the PDF
+                doc.save('documento.pdf');
             }
         </script>
     </body>

@@ -52,9 +52,9 @@ class CATALOGO:
     def Nivel(self):
         listNivel = [
             {"id_niv":"00","nivel":"selecciona un nivel"},
-            {"id_niv":"03","nivel":"secundaria"},
-            {"id_niv":"04","nivel":"preparatoria"},
-            {"id_niv":"05","nivel":"universidad"}
+            {"id_niv":"03","nivel":"preescolar"},
+            {"id_niv":"04","nivel":"primaria"},
+            {"id_niv":"05","nivel":"secundaria"}
         ]
         return listNivel
     
