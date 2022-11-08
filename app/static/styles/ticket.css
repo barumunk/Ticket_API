@@ -1,0 +1,565 @@
+/*Fondo*/
+#background{
+    position:    absolute;
+    top:         0;
+    left:        0;
+    width:       100%;
+    height:      100%;
+    display:     flex;
+    align-items: flex-end;
+}
+/*División de cajas*/
+/*box1 titulo y inputs*/
+.box1{
+    position: absolute;
+    top:         0;
+    left:        0;
+    width:       100%;
+    height:      60%;
+    /*background:white;*/
+    display:     flex;
+    align-items: flex-end;
+}
+/*box2 codigos barra y QR*/
+.box2{
+    /*position: absolute;*/
+	width:             100%;
+    height:            40%;
+	/*background-color: brown;*/
+	bottom:            0px;
+    display:           flex;
+    justify-content:   center;
+    align-items:       center;
+
+  }
+/*Caja del titulo y logos*/
+#title_box1{
+    position: absolute;
+    top:         0;
+    left:        0;
+    width:       100%;
+    height:      20%;
+    /*background:white;*/
+    display:     flex;
+    align-items: flex-end;
+}
+/*caja de los inputs*/
+#info_box1{
+    /*position: absolute;*/
+	width:             100%;
+    height:            80%;
+	/*background-color: brown;*/
+	bottom:            0px;
+    display:           flex;
+    justify-content:   center;
+    align-items:       center;
+}
+.labeltext{
+    font-size:25px;
+}
+/*Title logos*/
+.columna {
+    width:33%;
+    
+}
+
+#title{
+    font-size:50px;
+}
+
+#boxcenter {
+    /* centrar vertical y horizontalmente */
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    margin: -30px 0 0 -25px;
+}
+
+#boxcenter2 {
+    /* centrar vertical y horizontalmente */
+    position: absolute;
+    top: 50%;
+    right: 25%;
+    margin: -30px 0 0 -25px;
+}
+
+
+/*Codigos barra y QR*/
+#box2center {
+    /* centrar vertical y horizontalmente */
+    position: absolute;
+    top: 50%;
+    right: 40%;
+    margin: 240px 0 0 -25px;
+}
+
+#box2center2 {
+    /* centrar vertical y horizontalmente */
+    position: absolute;
+    top: 50%;
+    right: 0%;
+    margin: 120px 0 0 -25px;
+}
+
+/*modificación de los input y boton*/
+.block{
+    margin-bottom:34px;
+}
+
+.f_info_input{
+    border-radius: 5px;
+    height: 30px;
+    width: 250px;
+}
+.f_info_1{
+    border-radius: 5px;
+    height: 30px;
+    width: 200px;
+}
+.f_info_email{
+    border-radius: 5px;
+    height: 30px;
+    width: 350px;
+}
+.f_info_select{
+    border-radius: 5px;
+    height: 30px;
+    width: 800px;
+}
+#f_boton{
+    background-color: rgb(197, 197, 197);
+    height: 30px;
+    width: 200px;
+}
+/*carta*/
+#container{
+    position: relative;
+    top:         0;
+    left:        0;
+    width:       100%;
+    height:      100%;
+    display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.carta_div{
+    /*position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -25px 0 0 -25px;
+    background-color: red;
+    border:          2px solid black;
+    border-radius:   20px;
+    font-family:     sans-serif;
+    /*-----------------------*/
+    /*width:           90%;
+    height:          90%;*/
+    width: 65%;
+  height: 90%;
+  /* centrar vertical y horizontalmente */
+  border:          2px solid black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -25px 0 0 -25px;
+  transform: translate(-50%, -50%);
+}
+
+.img1{
+    width:100px; 
+    height:100px;
+}
+
+#img2{
+    width:300px; 
+    height:200px;
+}
+
+#img3{
+    width:350px; 
+    height:350px;
+}
+/*toast*/
+#toasts{
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+#toast{
+    width: 300px;
+    height: 70px;
+    border-radius: 5px;
+    margin: 0.5rem;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row-reverse;
+    
+}
+
+
+
+/*========== pantallas 1603 lap ==========*/
+
+@media screen and (max-width: 1603px) {    
+    .columna {
+        width:33%;
+    }
+
+/************ CABECERA ******************/
+    .img1{
+        width:65px; 
+        height:65px;
+    }
+
+    #title{
+        font-size:35px;
+    }
+
+    #boxcenter {
+        /* centrar vertical y horizontalmente */
+        position: absolute;
+        top: 60%;
+        left: 7%;
+        margin: -30px 0 0 -25px;
+    }
+    
+    #boxcenter2 {
+        /* centrar vertical y horizontalmente */
+        position: absolute;
+        top: 60%;
+        right: 25%;
+        margin: -30px 0 0 -25px;
+    }
+
+/************ CUERPO ******************/
+.labeltext{
+    font-size:15px;
+}
+
+.f_info_input{
+    border-radius: 5px;
+    height: 17px;
+    width: 160px;
+}
+.f_info_1{
+    border-radius: 5px;
+    height: 17px;
+    width: 110px;
+}
+.f_info_email{
+    border-radius: 5px;
+    height: 17px;
+    width: 260px;
+}
+.f_info_select{
+    border-radius: 5px;
+    height: 17px;
+    width: 550px;
+}
+#f_boton{
+    background-color: rgb(197, 197, 197);
+    height: 17px;
+    width: 110px;
+}
+
+/************ PIE ******************/
+#img2{
+    width:150px; 
+    height:110px;
+}
+
+#img3{
+    width:190px; 
+    height:190px;
+}
+
+#box2center {
+    /* centrar vertical y horizontalmente */
+    position: absolute;
+    top: 50%;
+    right: 40%;
+    margin: 180px 0 0 -25px;
+}
+
+#box2center2 {
+    /* centrar vertical y horizontalmente */
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    margin: 115px 0 0 -25px;
+}
+}
+
+
+
+
+/*========== pantallas 1217 lap pequeña ==========*/
+@media screen and (max-width: 1219px) {    
+    .columna {
+        width:33%;
+        margin-bottom:45px;
+    }
+
+    .carta_div{
+        border:          2px solid black;
+        position: absolute;
+        top: 50%;
+        height: 90%;
+        width: 50%;
+        overflow-y: scroll;
+        transform: translate(-45%, -50%);
+      }
+    
+/************ CABECERA ******************/
+#title_box1{
+    position: absolute;
+    top:         15%;
+}
+
+    .img1{
+        width:70px; 
+        height:70px;
+    }
+
+    #title{
+        font-size:30px;
+    }
+
+    #boxcenter {
+        /* centrar vertical y horizontalmente */
+        position: absolute;
+        top: 50%;
+        left: 9%;
+        margin: -30px 0 0 -25px;
+    }
+    
+    #boxcenter2 {
+        /* centrar vertical y horizontalmente */
+        position: absolute;
+        top: 50%;
+        right: 10%;
+        margin: -30px 0 0 -25px;
+    }
+
+/************ CUERPO ******************/
+
+#info_box1{
+    position: absolute;
+    top:         80%;
+}
+
+.labeltext{
+    font-size:20px;
+    display: block;
+}
+
+.f_info_input{
+    border-radius: 5px;
+    height: 20px;
+    width: 160px;
+    display: block;
+}
+.f_info_1{
+    border-radius: 5px;
+    height: 20px;
+    width: 110px;
+    display: block;
+}
+.f_info_email{
+    border-radius: 5px;
+    height: 20px;
+    width: 260px;
+    display: block;
+}
+.f_info_select{
+    border-radius: 5px;
+    height: 20px;
+    width: 550px;
+    display: block;
+}
+#f_boton{
+    background-color: rgb(197, 197, 197);
+    height: 20px;
+    width: 110px;
+    margin-bottom:5px;
+}
+
+/************ PIE ******************/
+
+#container{
+    width:       100%;
+    height:      100%;
+    overflow-y: scroll;
+}
+  
+#img2{
+    width:150px; 
+    height:110px;
+    display: block;
+}
+
+#img3{
+    width:190px; 
+    height:190px;
+    display: block;
+}
+
+#box2center {
+    /* centrar vertical y horizontalmente */
+    position: absolute;
+    top: 123%;
+    right: 37%;
+    margin: 240px 0 0 -25px;
+    display: block;
+}
+
+#box2center2 {
+    /* centrar vertical y horizontalmente */
+    position: absolute;
+    top: 115%;
+    right:34%;
+    margin: 120px 0 0 -25px;
+    display: block;
+}
+
+}
+
+
+
+/*========== pantallas 1217 moviles ==========*/
+@media screen and (max-width: 450px) {    
+    .columna {
+        width:33%;
+        margin-bottom:45px;
+    }
+
+    .carta_div{
+        border:          2px solid black;
+        position: absolute;
+        top: 50%;
+        height: 90%;
+        width: 95%;
+        overflow-y: scroll;
+        transform: translate(-43%, -50%);
+      }
+    
+/************ CABECERA ******************/
+#title_box1{
+    position: absolute;
+    top:         20%;
+}
+
+    .img1{
+        width:55px; 
+        height:55px;
+        display: block;
+    }
+
+    #title{
+        font-size:25px;
+        display: block;
+    }
+
+    #boxcenter {
+        position: absolute;
+        top: 60%;
+        left: 15%;
+        margin: -60px 0 0 -25px;
+    }
+    
+    #boxcenter2 {
+        position: absolute;
+        top: 60%;
+        left: 80%;
+        margin: -60px 0 0 -25px;
+    }
+
+/************ CUERPO ******************/
+
+#info_box1{
+    position: absolute;
+    top:         90%;
+    left: 3%;
+}
+
+.labeltext{
+    font-size:15px;
+    display: block;
+}
+
+.f_info_input{
+    border-radius: 5px;
+    height: 17px;
+    width: 160px;
+    display: block;
+}
+.f_info_1{
+    border-radius: 5px;
+    height: 17px;
+    width: 110px;
+    display: block;
+}
+.f_info_email{
+    border-radius: 5px;
+    height: 17px;
+    width: 260px;
+    display: block;
+}
+.f_info_select{
+    border-radius: 5px;
+    height: 17px;
+    width: 320px;
+    display: block;
+}
+#f_boton{
+    background-color: rgb(197, 197, 197);
+    height: 17px;
+    width: 110px;
+    margin-bottom:10px;
+}
+
+/************ PIE ******************/
+
+#container{
+    width:       100%;
+    height:      100%;
+    overflow-y: scroll;
+}
+  
+#img2{
+    width:150px; 
+    height:110px;
+    display: block;
+}
+
+#img3{
+    width:190px; 
+    height:190px;
+    display: block;
+}
+
+#box2center {
+    /* centrar vertical y horizontalmente */
+    position: absolute;
+    top: 135%;
+    right: 28%;
+    margin: 240px 0 0 -25px;
+    display: block;
+}
+
+#box2center2 {
+    /* centrar vertical y horizontalmente */
+    position: absolute;
+    top: 125%;
+    right:23%;
+    margin: 120px 0 0 -25px;
+    display: block;
+}
+
+}

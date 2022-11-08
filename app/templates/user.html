@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title> PAGINA ALUMNO</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        
+    </head>
+    <body>
+        <div class="container mt-5">
+            <button onclick="ruta()" class="btn btn-success">Registrar Ticket</button>
+            <div class="row"> 
+                <div class="col-md-16">
+                    <table class="table" >
+                        <thead class="table-success table-striped" >
+                            <tr>
+                                <th>Turno</th>
+                                <th>Municipio</th>
+                                <th>Nombre</th>
+                                <th>Apellido</th>
+                                <th>Curp</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for dic in diccionario %}
+                                <tr>
+                                    <th>{{dic['id_turno']}}</th>
+                                    <th>{{dic['municipio']}}</th>
+                                    <th>{{dic['nombre']}}</th>
+                                    <th>{{dic['paterno']}}</th> 
+                                    <th>{{dic['curp']}}</th>
+                                    <th><input hidden type="text" class="btn btn-info" id="municipio" name="municipio" value="{{dic['municipio']}}"></th>
+                                    <th><button onclick="municipio()" class="btn btn-info">Editar</button></th>
+                                </tr>|  
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>  
+        </div>
+        <script>
+            function ruta()
+            {
+                window.location='http://localhost:5000/user/ticket';
+            }
+
+            function municipio(){
+                var info = document.getElementById('municipio');
+                if (info.value != "")
+                {
+                    window.location='http://localhost:5000/user/validar/'+info.value;
+                }
+            }
+        </script>
+    </body>
+</html>

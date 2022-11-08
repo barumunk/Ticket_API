@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/styles/index.css"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/index.css') }}" />
+    <title>Inicio</title>
+</head>
+<body>
+    <div id="bienvenida">
+        <center>
+            <h1>Bienvenido</h1>
+            <h2>Sistema de Análisis de gastos (SAG)</h2>
+        </center>
+    </div>
+    <hr id="hr" >
+    <center>
+        <div class="contenedor">
+            <div class="carta">
+                <div class="pie">
+                    <form action="/" method="POST">
+                        <center>
+                            <div id="inputs">
+                                <h1>Iniciar Sesión</h1>
+                                <input name="usuario" class="inputext" type="text" placeholder="   Ingresa su Nombre de Usuario">
+                                <input name="contrasena" class="inputext" type="password" placeholder="   Ingresa su Contraseña">
+                                <input id="idbuttom-resgiatro" type="submit">
+                            </div>
+                        </center>
+                    </form>
+                    <center>
+                        <button onclick="ruta()">Crear Ticket de Usuario</button>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </center>
+
+    <script>
+        function ruta()
+        {
+            window.location='http://localhost:5000/user';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/styles/ticket.css"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/ticket.css') }}" />
+    <title>Ticket de Turno</title>
+</head>
+<body>
+    <div id="background">
+
+        <div id="container">
+            <div class="carta_div">
+                <div class="box1">
+                    <div id="title_box1">
+                        <div class="columna">
+                            <div id="boxcenter">
+                                <img class="img1" src="../static/images/logo1.1.jpg">
+                            </div>
+                        </div>
+                        <div class="columna">
+                            <center><p id="title">Ticket de Turno</p></center>
+                        </div>
+                        <div class="columna">
+                            <div id="boxcenter2">
+                                <img class="img1" src="../static/images/circulo.png">
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div id="info_box1">
+                        <div id="info_text_box1">
+                            <br><br><br><br><br><br>
+                            <form id="formulario" action="/user/ticket/registro" method="POST">
+                                <div class="block">
+                                    <label class="labeltext" for="f_nomcom">Nombre completo de quien realizará el trámite: </label>
+                                    <input class="f_info_input" type="text" name="f_namecom" id="f_namecom" placeholder="Ingresa Nombre Completo">
+                                    <label class="labeltext" for="f_curl">CURP: </label>
+                                    <input class="f_info_input" type="text" name="f_curp" id="f_curp" placeholder="Ingresar CURP">
+                                </div>
+                                <div class="block">
+                                    <label class="labeltext" for="f_nom">Nombre: </label>
+                                    <input class="f_info_input" type="text" name="f_name" id="f_name" placeholder="Ingresar Nombre">
+                                    <label class="labeltext" for="f_pat">Paterno:</label>
+                                    <input class="f_info_input" type="text" name="f_pate" id="f_pate" placeholder="Ingresar Apellido Paterno">
+                                    <label class="labeltext" for="f_mat">Materno:</label>
+                                    <input class="f_info_input" type="text" name="f_mate" id="f_mate" placeholder="Ingresar Apellido Materno">
+                                </div>
+                                <div class="block">
+                                    <label class="labeltext" for="f_tel">Telefono: </label>
+                                    <input class="f_info_input" type="tel" name="f_tele" id="f_tele" placeholder="Ingresar Telefono">
+                                    <label class="labeltext" for="f_cel">Celular:</label>
+                                    <input class="f_info_input" type="tel" name="f_celu" id="f_celu" placeholder="Ingresar Celular">
+                                    <label class="labeltext" for="f_cor">Correo:</label>
+                                    <input class="f_info_email" type="email" name="f_corr" id="f_corr" placeholder="Ingresar Correo">
+                                </div>
+                                <div class="block">
+                                    <label class="labeltext" for="f_niv">¿Nivel al que desea ingresar o que ya cursa el alumno?</label>
+                                    <select class="f_info_1" name="f_nive" id="f_info_select1">
+                                        {% for niv in nive %}
+                                            <option value="{{niv['nivel']}}" selected>{{niv['nivel']}}</option>
+                                        {% endfor %} 
+                                    </select>
+                                </div>
+                                <div class="block">
+                                    <label class="labeltext" for="f_mun">Municipio donde desea estudie el alumno:</label>
+                                    <select class="f_info_1" name="f_muni" id="f_info_select2">
+                                        {% for mun in muni %}
+                                            <option value="{{mun['nombre']}}" selected>{{mun['nombre']}}</option>
+                                        {% endfor %} 
+                                    </select>
+                                </div>
+                                <div class="block">
+                                    <label class="labeltext" for="f_mun">Seleccione el asunto que va a tratar:</label>
+                                    <select class="f_info_select" name="f_uni" id="f_info_select3">
+                                        {% for asu in asun %}
+                                            <option value="{{asu['asunto']}}" selected>{{asu['asunto']}}</option>
+                                        {% endfor %} 
+                                    </select>
+                                </div>
+                                <center><button id="f_boton" type="submit">Generar Tuerno</button></center>
+                            </form>
+                        </div>
+                    </div>
+                
+                </div>
+                
+                <div class="box2">
+                    <div class="columna">
+                        
+                    </div>
+                    <div class="columna">
+                        <div id="box2center">
+                            <img id="img2" src="../static/images/barra.png">
+                        </div>
+                    </div>
+                    <div class="columna">
+                        <div id="box2center2">
+                            <img id="img3" src="../static/images/qr.png">
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+    </div>
+    <div id="toasts">
+        <div id="toast">
+            <h1></h1>
+        </div>
+    </div>
+
+    <script src="js/validar.js"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <title>Actualizar</title>
+</head>
+<body>
+    <div class="container mt-5">
+        
+        <form id="formulario" action="/user/actualizar" method="POST">
+            <div class="row"> 
+                <div class="col-md-16">
+                    
+                    <div id="curp-id">
+                        <input type="text" class="form-control mb-3" name="turno" placeholder="Numero de Turno">
+                        <input type="text" class="form-control mb-3" name="curp" placeholder="CURP">
+                        <input hidden type="text" class="form-control mb-3" name="municipio" value="{{municipio}}">
+                        
+                        <input type="submit" class="btn btn-primary btn-block" value="Enviar">
+                    </div>
+                               
+                </div>
+            </div>  
+        </form>
+        
+    </div>
+</body>
+</html>

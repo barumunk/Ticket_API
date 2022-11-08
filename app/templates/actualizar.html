@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <title>Actualizar</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <form id="formulario" action="/user/actualizar/datos" method="POST">
+            <div class="row"> 
+                <div class="col-md-16">
+                    {% for lista in listas %}
+
+                        <div id="actualizar">
+                            <input type="hidden" name="id_turno" value="{{lista['id_turno']}}">
+
+                            <label for="f_nomcom">Nombre completo de quien realizará el trámite: </label>
+                            <input type="text" class="form-control mb-3" name="f_namecom" placeholder="Nombre Completo" value="{{lista['nombrecomp']}}">
+                            
+                            <label for="f_curl">CURP: </label>
+                            <input type="text" class="form-control mb-3" name="f_curp" placeholder="Curp" value="{{lista['curp']}}">
+                            
+                            <label for="f_nom">Nombre: </label>
+                            <input type="text" class="form-control mb-3" name="f_name" placeholder="Nombre" value="{{lista['nombre']}}">
+                            
+                            <label for="f_pat">Paterno:</label>
+                            <input type="text" class="form-control mb-3" name="f_pate" placeholder="Apellido Paterno" value="{{lista['paterno']}}">
+                            
+                            <label for="f_mat">Materno:</label>
+                            <input type="text" class="form-control mb-3" name="f_mate" placeholder="Apellido Materno" value="{{lista['materno']}}">
+                            
+                            <label for="f_tel">Telefono: </label>
+                            <input type="text" class="form-control mb-3" name="f_tele" placeholder="Telefono" value="{{lista['telefono']}}">
+                            
+                            <label for="f_cel">Celular:</label>
+                            <input type="text" class="form-control mb-3" name="f_celu" placeholder="Celular" value="{{lista['celular']}}">
+                            
+                            <label for="f_cor">Correo:</label>
+                            <input type="text" class="form-control mb-3" name="f_corr" placeholder="Correo" value="{{lista['correo']}}">
+                        {% endfor %}
+
+                        <label for="f_niv">¿Nivel al que desea ingresar o que ya cursa el alumno?</label>
+                        <select class="f_info_1" name="f_nive" id="f_info_select1">
+                            {% for niv in nive %}
+                                <option value="{{niv['nivel']}}" selected>{{niv['nivel']}}</option>
+                            {% endfor %} 
+                        </select>
+                        <br>
+                        <label for="f_mun">Municipio donde desea estudie el alumno:</label>
+                        <select class="f_info_1" name="f_muni" id="f_info_select2">
+                            {% for mun in muni %}
+                                <option value="{{mun['nombre']}}" selected>{{mun['nombre']}}</option>
+                            {% endfor %} 
+                        </select>
+                        <br>
+                        <label for="f_mun">Seleccione el asunto que va a tratar:</label>
+                        <select class="f_info_select" name="f_uni" id="f_info_select3">
+                            {% for asu in asun %}
+                                <option value="{{asu['asunto']}}" selected>{{asu['asunto']}}</option>
+                            {% endfor %} 
+                        </select>
+                        <br>
+                        <input type="submit" class="btn btn-primary btn-block" value="Actualizar">
+                    </div>             
+                </div>
+            </div>  
+        </form>
+        
+    </div>
+</body>
+</html>
